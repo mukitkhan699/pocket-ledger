@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <!-- Header with Logo, Title, Notification Icon -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/screen_padding"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/space_4">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/avatar"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_icon_circle"
+                android:gravity="center"
+                android:textColor="@color/primary_green"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/greetingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good morning"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                    android:textColor="@color/text_secondary" />
+
+                <TextView
+                    android:id="@+id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Friend"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium"
+                    android:textColor="@color/text_primary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/notificationIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:src="@drawable/ic_notifications"
+            android:contentDescription="@string/notifications"
+            app:tint="@color/text_primary" />
+    </LinearLayout>
+
+    <!-- Main content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/space_8"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/fab_bottom_offset">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingBottom="@dimen/space_24">
+
+            <!-- Date Filter Chips -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/space_16">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dateFilterRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/dateFilterLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:text="This month"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+
+            <!-- Segmented Control: Summary / Trends / Categories -->
+            <com.pocketledger.customviews.SegmentedControl
+                android:id="@+id/dashboardSegmentControl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20" />
+
+            <!-- Net Worth Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.PocketLedger.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:backgroundTint="@color/surface_elevated">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_20">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Net worth"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+                        <TextView
+                            android:id="@+id/netWorthChange"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/netWorthAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:textAppearance="@style/TextAppearance.PocketLedger.AmountLarge"
+                        android:textColor="@color/balance_text"
+                        android:text="৳0.00" />
+
+                    <!-- Line Chart View -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="@dimen/space_16"
+                        android:backgroundTint="@color/surface"
+                        app:cardCornerRadius="@dimen/card_radius_small"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/border"
+                        app:strokeWidth="1dp">
+
+                        <FrameLayout
+                            android:id="@+id/netWorthChartContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="This month"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/monthlyNetWorth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="৳0.00"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.Amount"
+                                android:textColor="@color/primary_green" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="40dp"
+                            android:background="@color/divider" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginStart="@dimen/space_16">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Previous month"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                                android:textColor="@color/text_secondary" />
+
+                            <TextView
+                                android:id="@+id/previousMonthNetWorth"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_4"
+                                android:text="৳0.00"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.Amount"
+                                android:textColor="@color/text_primary" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Metric Cards (replacing fake Cash/Savings/Investment) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <!-- Total Balance Card -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.PocketLedger.Card.Inset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/space_12"
+                    android:backgroundTint="@color/surface_elevated">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:src="@drawable/ic_account_balance"
+                                android:contentDescription="Total Balance"
+                                app:tint="@color/primary_green" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_8"
+                                android:text="Total Balance"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/totalBalanceCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:text="৳0.00"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.AmountLarge"
+                            android:textColor="@color/balance_text" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Monthly Net Card -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.PocketLedger.Card.Inset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/space_12"
+                    android:backgroundTint="@color/surface_elevated">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:src="@drawable/ic_trending_up"
+                                android:contentDescription="Monthly Net"
+                                app:tint="@color/savings" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_8"
+                                android:text="Monthly Net"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/monthlyNetCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:text="৳0.00"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.AmountLarge"
+                            android:textColor="@color/balance_text" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Loan Net Card -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.PocketLedger.Card.Inset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/surface_elevated">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:src="@drawable/ic_handshake"
+                                android:contentDescription="Loan Net"
+                                app:tint="@color/investment" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_8"
+                                android:text="Loan Net"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/loanNetCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:text="৳0.00"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.AmountLarge"
+                            android:textColor="@color/balance_text" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Income/Expense Summary Cards with Charts -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="horizontal">
+
+                <!-- Income Card -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.PocketLedger.Card.Inset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/space_12"
+                    android:backgroundTint="@color/surface_elevated">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_income"
+                                android:contentDescription="Income"
+                                app:tint="@color/income" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_8"
+                                android:text="Income"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/incomeAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:text="৳0.00"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.AmountLarge"
+                            android:textColor="@color/income" />
+
+                        <!-- Monthly Bar Chart -->
+                        <FrameLayout
+                            android:id="@+id/incomeChartContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="@dimen/space_12" />
+
+                        <TextView
+                            android:id="@+id/incomeMonthLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_8"
+                            android:text="This month"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Expense Card -->
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.PocketLedger.Card.Inset"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/surface_elevated">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/space_16">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_expense"
+                                android:contentDescription="Expense"
+                                app:tint="@color/expense" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/space_8"
+                                android:text="Expense"
+                                android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/expenseAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_12"
+                            android:text="৳0.00"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.AmountLarge"
+                            android:textColor="@color/expense" />
+
+                        <!-- Monthly Bar Chart -->
+                        <FrameLayout
+                            android:id="@+id/expenseChartContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:layout_marginTop="@dimen/space_12" />
+
+                        <TextView
+                            android:id="@+id/expenseMonthLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_8"
+                            android:text="This month"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Trends Chart (shown only for Trends segment) -->
+            <LinearLayout
+                android:id="@+id/trendsChartSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Spending Trends"
+                        android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+                    <TextView
+                        android:id="@+id/trendsPeriodLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="This month"
+                        android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.PocketLedger.Card"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:backgroundTint="@color/surface">
+
+                    <FrameLayout
+                        android:id="@+id/trendsChartContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/space_16" />
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Expense Category Breakdown -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Expense Category Breakdown"
+                        android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+                    <TextView
+                        android:id="@+id/categoryViewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="@dimen/space_6"
+                        android:text="View all"
+                        android:textColor="@color/accent"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/categoryBreakdownRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12" />
+            </LinearLayout>
+
+            <!-- Recent Transactions -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Recent Transactions"
+                        android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+                    <TextView
+                        android:id="@+id/transactionsViewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="@dimen/space_6"
+                        android:text="View all"
+                        android:textColor="@color/accent"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recentTransactionsRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12" />
+
+                <LinearLayout
+                    android:id="@+id/recentTransactionsEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_20"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:contentDescription="@string/no_transactions"
+                        android:src="@drawable/ic_history"
+                        app:tint="@color/text_tertiary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_12"
+                        android:text="@string/no_transactions"
+                        android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/space_4"
+                        android:text="@string/no_transactions_hint"
+                        android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Monthly Savings Summary -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.PocketLedger.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Monthly Savings Summary"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saved"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                <TextView
+                    android:id="@+id/savedAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="৳0.00"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Amount"
+                    android:textColor="@color/primary_green" />
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Target"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                    android:textColor="@color/text_secondary" />
+
+                <TextView
+                    android:id="@+id/savingsTarget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="৳5,000.00"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Amount"
+                    android:textColor="@color/text_primary" />
+                </LinearLayout>
+            </LinearLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/savingsProgress"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="@dimen/space_12"
+                    android:progress="30"
+                    android:backgroundTint="@color/surface_alt"
+                    android:progressTint="@color/primary_green" />
+
+                <TextView
+                    android:id="@+id/savingsProgressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:text="30% of target"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                    android:textColor="@color/primary_green" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+            <!-- Quick-add Transaction Button (FAB) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/quickAddButton"
+                style="@style/Widget.PocketLedger.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:text="Quick Add Transaction" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_24" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

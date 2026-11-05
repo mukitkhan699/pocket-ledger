@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/screen_padding">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_back"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:text="@string/transaction_detail"
+            android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_edit"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_edit"
+            app:tint="@color/text_primary" />
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="@dimen/space_6"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_delete"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/expense" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingBottom="@dimen/space_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_balance_card"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/space_24">
+
+                <TextView
+                    android:id="@+id/detailAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="৳0.00"
+                    android:textColor="@color/balance_text"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/detailType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="@string/type_expense"
+                    android:textColor="@color/balance_text_muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.PocketLedger.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/category"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/detailCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                    </LinearLayout>
+
+                    <View style="@style/Widget.PocketLedger.Divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/date"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/detailDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                    </LinearLayout>
+
+                    <View style="@style/Widget.PocketLedger.Divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/description"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/detailDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                    </LinearLayout>
+
+                    <View style="@style/Widget.PocketLedger.Divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/notes"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/detailNotes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Body" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/detailMealBadge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_12"
+                android:background="@drawable/bg_pill"
+                android:padding="@dimen/space_12"
+                android:text="@string/meal_only_consumed_counts"
+                android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+                android:visibility="gone" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

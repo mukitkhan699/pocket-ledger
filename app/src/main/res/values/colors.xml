@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main background -->
+    <color name="background">#F8F9FA</color>
+    <!-- Surface/card background -->
+    <color name="surface">#FFFFFF</color>
+    <!-- Secondary surface -->
+    <color name="surface_elevated">#F0F2F5</color>
+    <!-- Surface alt -->
+    <color name="surface_alt">#E8EBF0</color>
+    <!-- Border -->
+    <color name="border">#D1D5DB</color>
+    <!-- Divider -->
+    <color name="divider">#E5E7EB</color>
+    <!-- Primary text -->
+    <color name="text_primary">#111827</color>
+    <!-- Secondary text -->
+    <color name="text_secondary">#6B7280</color>
+    <!-- Disabled/tertiary text -->
+    <color name="text_tertiary">#9CA3AF</color>
+    <!-- Primary green -->
+    <color name="primary_green">#20B486</color>
+    <!-- Primary green dark -->
+    <color name="primary_green_dark">#103B32</color>
+    <!-- Income -->
+    <color name="income">#20B486</color>
+    <!-- Expense -->
+    <color name="expense">#F16F68</color>
+    <!-- Savings -->
+    <color name="savings">#4F8CFF</color>
+    <!-- Investment -->
+    <color name="investment">#9B78EF</color>
+    <!-- Warning -->
+    <color name="warning">#F2A65A</color>
+    <!-- Planned -->
+    <color name="planned">#9CA3AF</color>
+    <!-- Consumed -->
+    <color name="consumed">#20B486</color>
+    <!-- Skipped -->
+    <color name="skipped">#9CA3AF</color>
+    <!-- Accent (kept for compatibility) -->
+    <color name="accent">#20B486</color>
+    <color name="accent_dark">#103B32</color>
+    <color name="accent_soft">#D1FAE5</color>
+    <!-- Balance text -->
+    <color name="balance_text">#111827</color>
+    <color name="balance_text_muted">#6B7280</color>
+    <!-- Scrim -->
+    <color name="scrim">#66000000</color>
+    <!-- Chart grid -->
+    <color name="chart_grid">#E5E7EB</color>
+    <!-- Chart bars -->
+    <color name="chart_bar">#20B486</color>
+    <color name="chart_bar_alt">#103B32</color>
+    <color name="chart_income">#20B486</color>
+    <color name="chart_expense">#F16F68</color>
+    <!-- Launcher bg -->
+    <color name="launcher_bg">#F8F9FA</color>
+    <!-- White / Black / Transparent -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <!-- Chip colors -->
+    <color name="chip_text">#111827</color>
+    <color name="chip_bg">#F0F2F5</color>
+    <color name="chip_stroke">#D1D5DB</color>
+    <!-- Segmented colors -->
+    <color name="segmented_bg">#F0F2F5</color>
+    <color name="segmented_text">#6B7280</color>
+    <!-- Navigation -->
+    <color name="nav_background">#FFFFFF</color>
+    <color name="nav_item">#9CA3AF</color>
+
+</resources>

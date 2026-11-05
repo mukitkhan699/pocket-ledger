@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/space_10">
+
+    <ImageView
+        android:id="@+id/categoryIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_icon_circle"
+        android:contentDescription="@string/content_description_category_icon"
+        android:padding="@dimen/space_10"
+        android:src="@drawable/ic_other"
+        app:tint="@color/text_secondary" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_12"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/categoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+
+        <TextView
+            android:id="@+id/categoryMeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_2"
+            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/categoryEdit"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/bg_toolbar_icon"
+        android:contentDescription="@string/content_description_edit"
+        android:padding="@dimen/space_8"
+        android:src="@drawable/ic_edit"
+        app:tint="@color/text_primary" />
+
+    <ImageButton
+        android:id="@+id/categoryDelete"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="@dimen/space_6"
+        android:background="@drawable/bg_toolbar_icon"
+        android:contentDescription="@string/content_description_delete"
+        android:padding="@dimen/space_8"
+        android:src="@drawable/ic_delete"
+        app:tint="@color/expense" />
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/space_20">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/repaymentAmountLayout"
+        style="@style/Widget.PocketLedger.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/repayment_amount"
+        app:prefixText="৳ ">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/repaymentAmountInput"
+            style="@style/Widget.PocketLedger.TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/repaymentDateRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10"
+        android:background="@drawable/bg_amount_field"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/space_12">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:contentDescription="@string/date"
+            android:src="@drawable/ic_calendar"
+            app:tint="@color/accent" />
+
+        <TextView
+            android:id="@+id/repaymentDateValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.PocketLedger.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10"
+        android:hint="@string/notes">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/repaymentNotesInput"
+            style="@style/Widget.PocketLedger.TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:maxLines="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>

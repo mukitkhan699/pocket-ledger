@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/screen_padding">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_back"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:text="@string/loans"
+            android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+        <ImageButton
+            android:id="@+id/editButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_edit"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_edit"
+            app:tint="@color/text_primary" />
+
+        <ImageButton
+            android:id="@+id/deleteButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="@dimen/space_6"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_delete"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_delete"
+            app:tint="@color/expense" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingBottom="@dimen/space_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_balance_card"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/space_24">
+
+                <TextView
+                    android:id="@+id/loanRemaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="৳0.00"
+                    android:textColor="@color/balance_text"
+                    android:textSize="34sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/loanDirection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:text="@string/direction_borrowed"
+                    android:textColor="@color/balance_text_muted"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.PocketLedger.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/space_16">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/person_name"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/loanPerson"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                    </LinearLayout>
+
+                    <View style="@style/Widget.PocketLedger.Divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/principal"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/loanPrincipal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                    </LinearLayout>
+
+                    <View style="@style/Widget.PocketLedger.Divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/repaid"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/loanRepaid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                    </LinearLayout>
+
+                    <View style="@style/Widget.PocketLedger.Divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/loan_date"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/loanDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
+                    </LinearLayout>
+
+                    <View style="@style/Widget.PocketLedger.Divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingVertical="@dimen/space_10">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/notes"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+                        <TextView
+                            android:id="@+id/loanDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/space_4"
+                            android:textAppearance="@style/TextAppearance.PocketLedger.Body" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/repayments"
+                    android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addRepaymentButton"
+                    style="@style/Widget.PocketLedger.Button.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/record_repayment" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/repaymentsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <TextView
+                android:id="@+id/repaymentsEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/space_16"
+                android:text="@string/no_repayments"
+                android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

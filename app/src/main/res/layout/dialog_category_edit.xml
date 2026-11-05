@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/space_20">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/categoryNameLayout"
+        style="@style/Widget.PocketLedger.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/category_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/categoryNameInput"
+            style="@style/Widget.PocketLedger.TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.pocketledger.customviews.SegmentedControl
+        android:id="@+id/categoryTypeControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/category_food"
+            android:textAppearance="@style/TextAppearance.PocketLedger.Body" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/categoryFoodSwitch"
+            style="@style/Widget.PocketLedger.Switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12"
+        android:text="@string/icon"
+        android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+    <Spinner
+        android:id="@+id/iconSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/space_4"
+        android:background="@drawable/bg_amount_field"
+        android:paddingHorizontal="@dimen/space_10" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10"
+        android:text="@string/color"
+        android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+    <Spinner
+        android:id="@+id/colorSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="@dimen/space_4"
+        android:background="@drawable/bg_amount_field"
+        android:paddingHorizontal="@dimen/space_10" />
+</LinearLayout>

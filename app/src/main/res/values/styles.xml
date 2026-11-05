@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextAppearance.PocketLedger.Display" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">@dimen/text_display</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.Title" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.Section" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">@dimen/text_section</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/text_body</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.BodyMedium" parent="TextAppearance.PocketLedger.Body">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">@dimen/text_caption</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.CaptionBold" parent="TextAppearance.PocketLedger.Caption">
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.Label" parent="TextAppearance.PocketLedger.Caption">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.Amount" parent="TextAppearance.PocketLedger.Body">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextAppearance.PocketLedger.AmountLarge" parent="TextAppearance.PocketLedger.Display">
+        <item name="android:textColor">@color/balance_text</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Card" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/surface</item>
+        <item name="cardCornerRadius">@dimen/card_radius</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardPreventCornerOverlap">true</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Card.Inset" parent="Widget.PocketLedger.Card">
+        <item name="cardCornerRadius">@dimen/card_radius_small</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/primary_green</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="iconTint">@color/white</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">8dp</item>
+        <item name="rippleColor">@color/primary_green_dark</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="strokeColor">@color/border</item>
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="iconTint">@color/text_primary</item>
+        <item name="rippleColor">@color/surface_alt</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/primary_green</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">40dp</item>
+    </style>
+
+    <style name="Widget.PocketLedger.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/surface_elevated</item>
+        <item name="boxStrokeColor">@color/border</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1.5dp</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="boxCornerRadiusTopStart">@dimen/input_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/input_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/input_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/input_radius</item>
+        <item name="errorTextColor">@color/expense</item>
+    </style>
+
+    <style name="Widget.PocketLedger.TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColorHint">@color/text_tertiary</item>
+        <item name="android:paddingTop">14dp</item>
+        <item name="android:paddingBottom">14dp</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Chip" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">16dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipMinHeight">@dimen/chip_height</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Chip.Selected" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="android:textColor">@color/white</item>
+        <item name="chipBackgroundColor">@color/primary_green</item>
+        <item name="chipStrokeColor">@color/primary_green</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">16dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="chipMinHeight">@dimen/chip_height</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Chip.Action" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="chipStrokeColor">@color/chip_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">16dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="chipMinHeight">@dimen/chip_height</item>
+        <item name="ensureMinTouchTargetSize">false</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="thumbTint">@color/switch_thumb</item>
+        <item name="trackTint">@color/switch_track</item>
+    </style>
+
+    <style name="Widget.PocketLedger.SegmentedGroup" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:minHeight">42dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="backgroundTint">@color/segmented_bg</item>
+        <item name="android:textColor">@color/segmented_text</item>
+        <item name="rippleColor">@color/primary_green</item>
+    </style>
+
+    <style name="Widget.PocketLedger.Divider" parent="">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+
+</resources>

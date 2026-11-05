@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/screen_padding">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_back"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:text="@string/backup_title"
+            android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/screen_padding"
+            android:paddingBottom="@dimen/space_24">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/backup_desc"
+                android:textAppearance="@style/TextAppearance.PocketLedger.Body"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/lastBackup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_8"
+                android:text="@string/never_backed_up"
+                android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/exportJsonButton"
+                style="@style/Widget.PocketLedger.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:text="@string/create_backup"
+                app:icon="@drawable/ic_upload" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/exportCsvButton"
+                style="@style/Widget.PocketLedger.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:text="@string/export_csv"
+                app:icon="@drawable/ic_download" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/restoreButton"
+                style="@style/Widget.PocketLedger.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:text="@string/restore_backup"
+                app:icon="@drawable/ic_download" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:background="@drawable/bg_pill"
+                android:padding="@dimen/space_14"
+                android:text="@string/backup_note"
+                android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

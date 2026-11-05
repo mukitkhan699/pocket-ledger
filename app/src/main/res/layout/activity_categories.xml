@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/screen_padding">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/content_description_back"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/text_primary" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_12"
+            android:layout_weight="1"
+            android:text="@string/categories"
+            android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
+
+        <ImageButton
+            android:id="@+id/addCategoryButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/bg_toolbar_icon"
+            android:contentDescription="@string/new_category"
+            android:padding="@dimen/space_10"
+            android:src="@drawable/ic_add"
+            app:tint="@color/accent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/screen_padding">
+
+        <com.pocketledger.customviews.SegmentedControl
+            android:id="@+id/categoryFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/categoriesList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/space_10"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/space_20" />
+
+        <TextView
+            android:id="@+id/categoriesEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/no_categories"
+            android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
+            android:visibility="gone" />
+    </LinearLayout>
+</LinearLayout>

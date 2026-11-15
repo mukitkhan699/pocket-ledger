@@ -11,15 +11,15 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/space_12">
+        android:padding="@dimen/list_item_padding">
 
         <ImageView
             android:id="@+id/mealIcon"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/list_icon_size"
+            android:layout_height="@dimen/list_icon_size"
             android:background="@drawable/bg_icon_circle"
             android:contentDescription="@string/meal_type"
-            android:padding="@dimen/space_10"
+            android:padding="@dimen/list_icon_padding"
             android:src="@drawable/ic_food"
             app:tint="@color/accent" />
 
@@ -32,15 +32,19 @@
 
             <TextView
                 android:id="@+id/mealLabel"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
 
             <TextView
                 android:id="@+id/mealAmount"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_2"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
         </LinearLayout>
 
@@ -58,8 +62,8 @@
 
         <ImageButton
             android:id="@+id/mealConsume"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
+            android:layout_width="@dimen/list_action_size"
+            android:layout_height="@dimen/list_action_size"
             android:layout_marginStart="@dimen/space_6"
             android:background="@drawable/bg_toolbar_icon"
             android:contentDescription="@string/content_description_check"
@@ -69,8 +73,8 @@
 
         <ImageButton
             android:id="@+id/mealSkip"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
+            android:layout_width="@dimen/list_action_size"
+            android:layout_height="@dimen/list_action_size"
             android:layout_marginStart="@dimen/space_4"
             android:background="@drawable/bg_toolbar_icon"
             android:contentDescription="@string/content_description_skip"

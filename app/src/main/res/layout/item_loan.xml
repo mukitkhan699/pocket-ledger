@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:orientation="vertical"
-        android:padding="@dimen/space_14">
+        android:padding="@dimen/list_item_padding">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,8 +22,8 @@
 
             <TextView
                 android:id="@+id/loanInitial"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="@dimen/list_icon_size"
+                android:layout_height="@dimen/list_icon_size"
                 android:background="@drawable/bg_icon_circle"
                 android:gravity="center"
                 android:text="A"
@@ -40,28 +40,35 @@
 
                 <TextView
                     android:id="@+id/loanPerson"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
 
                 <TextView
                     android:id="@+id/loanMeta"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_2"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_8"
                 android:gravity="end"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/loanAmount"
+                    style="@style/Widget.PocketLedger.AmountText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:maxWidth="@dimen/list_amount_max_width"
                     android:textAppearance="@style/TextAppearance.PocketLedger.Amount" />
 
                 <TextView
@@ -69,6 +76,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_2"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
             </LinearLayout>
         </LinearLayout>

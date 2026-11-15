@@ -62,7 +62,7 @@
         android:layout_marginTop="@dimen/space_10"
         android:layout_weight="1"
         android:clipToPadding="false"
-        android:paddingBottom="@dimen/space_20" />
+        android:paddingBottom="@dimen/fab_bottom_offset" />
 
     <LinearLayout
         android:id="@+id/transactionsEmpty"

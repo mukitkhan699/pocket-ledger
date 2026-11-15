@@ -15,11 +15,11 @@
 
         <ImageButton
             android:id="@+id/backButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/list_icon_size"
+            android:layout_height="@dimen/list_icon_size"
             android:background="@drawable/bg_toolbar_icon"
             android:contentDescription="@string/content_description_back"
-            android:padding="@dimen/space_10"
+            android:padding="@dimen/list_icon_padding"
             android:src="@drawable/ic_arrow_back"
             app:tint="@color/text_primary" />
 
@@ -33,11 +33,11 @@
 
         <ImageButton
             android:id="@+id/addLoanButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/list_icon_size"
+            android:layout_height="@dimen/list_icon_size"
             android:background="@drawable/bg_toolbar_icon"
             android:contentDescription="@string/add_loan"
-            android:padding="@dimen/space_10"
+            android:padding="@dimen/list_icon_padding"
             android:src="@drawable/ic_add"
             app:tint="@color/accent" />
     </LinearLayout>
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/space_16">
+                android:padding="@dimen/dashboard_metric_padding">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -73,14 +73,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="@string/borrowed"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
 
                     <TextView
                         android:id="@+id/borrowedTotal"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.PocketLedger.AmountText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_2"
                         android:text="৳0.00"
@@ -95,14 +98,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="@string/lent"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
 
                     <TextView
                         android:id="@+id/lentTotal"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.PocketLedger.AmountText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_2"
                         android:text="৳0.00"

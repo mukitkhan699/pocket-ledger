@@ -34,23 +34,28 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/space_8"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/greetingText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="Good morning"
                     android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
                     android:textColor="@color/text_secondary" />
 
                 <TextView
                     android:id="@+id/userName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="Friend"
                     android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium"
                     android:textColor="@color/text_primary" />
@@ -144,13 +149,17 @@
                             android:id="@+id/netWorthChange"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/space_8"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
                             android:textColor="@color/text_secondary" />
                     </LinearLayout>
 
                     <TextView
                         android:id="@+id/netWorthAmount"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.PocketLedger.AmountText.Large"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_12"
                         android:textAppearance="@style/TextAppearance.PocketLedger.AmountLarge"
@@ -160,7 +169,7 @@
                     <!-- Line Chart View -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="@dimen/dashboard_chart_height"
                         android:layout_marginTop="@dimen/space_16"
                         android:backgroundTint="@color/surface"
                         app:cardCornerRadius="@dimen/card_radius_small"
@@ -238,27 +247,29 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Metric Cards (replacing fake Cash/Savings/Investment) -->
-            <LinearLayout
+            <!-- Metric Cards (responsive 2/3 column grid) -->
+            <android.widget.GridLayout
+                android:id="@+id/metricGrid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_20"
-                android:orientation="horizontal">
+                android:columnCount="2"
+                android:useDefaultMargins="false">
 
                 <!-- Total Balance Card -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/metricBalanceCard"
                     style="@style/Widget.PocketLedger.Card.Inset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/space_12"
+                    android:layout_columnWeight="1"
                     android:backgroundTint="@color/surface_elevated">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_16">
+                        android:padding="@dimen/dashboard_metric_padding">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -274,16 +285,20 @@
                                 app:tint="@color/primary_green" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/space_8"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
                                 android:text="Total Balance"
                                 android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
                         </LinearLayout>
 
                         <TextView
                             android:id="@+id/totalBalanceCard"
-                            android:layout_width="wrap_content"
+                            style="@style/Widget.PocketLedger.AmountText.Large"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_12"
                             android:text="৳0.00"
@@ -294,18 +309,18 @@
 
                 <!-- Monthly Net Card -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/metricMonthlyCard"
                     style="@style/Widget.PocketLedger.Card.Inset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/space_12"
+                    android:layout_columnWeight="1"
                     android:backgroundTint="@color/surface_elevated">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_16">
+                        android:padding="@dimen/dashboard_metric_padding">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -321,16 +336,20 @@
                                 app:tint="@color/savings" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/space_8"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
                                 android:text="Monthly Net"
                                 android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
                         </LinearLayout>
 
                         <TextView
                             android:id="@+id/monthlyNetCard"
-                            android:layout_width="wrap_content"
+                            style="@style/Widget.PocketLedger.AmountText.Large"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_12"
                             android:text="৳0.00"
@@ -341,17 +360,20 @@
 
                 <!-- Loan Net Card -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/metricLoanCard"
                     style="@style/Widget.PocketLedger.Card.Inset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="1"
+                    android:layout_marginTop="@dimen/space_12"
                     android:backgroundTint="@color/surface_elevated">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_16">
+                        android:padding="@dimen/dashboard_metric_padding">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -367,16 +389,20 @@
                                 app:tint="@color/investment" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/space_8"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
                                 android:text="Loan Net"
                                 android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
                         </LinearLayout>
 
                         <TextView
                             android:id="@+id/loanNetCard"
-                            android:layout_width="wrap_content"
+                            style="@style/Widget.PocketLedger.AmountText.Large"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_12"
                             android:text="৳0.00"
@@ -384,29 +410,31 @@
                             android:textColor="@color/balance_text" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
+            </android.widget.GridLayout>
 
             <!-- Income/Expense Summary Cards with Charts -->
-            <LinearLayout
+            <android.widget.GridLayout
+                android:id="@+id/incomeExpenseGrid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_20"
-                android:orientation="horizontal">
+                android:columnCount="2"
+                android:useDefaultMargins="false">
 
                 <!-- Income Card -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/incomeCard"
                     style="@style/Widget.PocketLedger.Card.Inset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="@dimen/space_12"
+                    android:layout_columnWeight="1"
                     android:backgroundTint="@color/surface_elevated">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_16">
+                        android:padding="@dimen/dashboard_metric_padding">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -422,16 +450,20 @@
                                 app:tint="@color/income" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/space_8"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
                                 android:text="Income"
                                 android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
                         </LinearLayout>
 
                         <TextView
                             android:id="@+id/incomeAmount"
-                            android:layout_width="wrap_content"
+                            style="@style/Widget.PocketLedger.AmountText.Large"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_12"
                             android:text="৳0.00"
@@ -442,14 +474,16 @@
                         <FrameLayout
                             android:id="@+id/incomeChartContainer"
                             android:layout_width="match_parent"
-                            android:layout_height="80dp"
+                            android:layout_height="@dimen/dashboard_mini_chart_height"
                             android:layout_marginTop="@dimen/space_12" />
 
                         <TextView
                             android:id="@+id/incomeMonthLabel"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_8"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:text="This month"
                             android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
                             android:textColor="@color/text_secondary" />
@@ -458,17 +492,18 @@
 
                 <!-- Expense Card -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/expenseCard"
                     style="@style/Widget.PocketLedger.Card.Inset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_columnWeight="1"
                     android:backgroundTint="@color/surface_elevated">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/space_16">
+                        android:padding="@dimen/dashboard_metric_padding">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -484,16 +519,20 @@
                                 app:tint="@color/expense" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/space_8"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:maxLines="1"
                                 android:text="Expense"
                                 android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
                         </LinearLayout>
 
                         <TextView
                             android:id="@+id/expenseAmount"
-                            android:layout_width="wrap_content"
+                            style="@style/Widget.PocketLedger.AmountText.Large"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_12"
                             android:text="৳0.00"
@@ -504,20 +543,22 @@
                         <FrameLayout
                             android:id="@+id/expenseChartContainer"
                             android:layout_width="match_parent"
-                            android:layout_height="80dp"
+                            android:layout_height="@dimen/dashboard_mini_chart_height"
                             android:layout_marginTop="@dimen/space_12" />
 
                         <TextView
                             android:id="@+id/expenseMonthLabel"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/space_8"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:text="This month"
                             android:textAppearance="@style/TextAppearance.PocketLedger.Caption"
                             android:textColor="@color/text_secondary" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
+            </android.widget.GridLayout>
 
             <!-- Trends Chart (shown only for Trends segment) -->
             <LinearLayout
@@ -553,7 +594,7 @@
                 <com.google.android.material.card.MaterialCardView
                     style="@style/Widget.PocketLedger.Card"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/dashboard_chart_height"
                     android:layout_marginTop="@dimen/space_12"
                     android:backgroundTint="@color/surface">
 

@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/categoryIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/list_icon_size"
+        android:layout_height="@dimen/list_icon_size"
         android:background="@drawable/bg_icon_circle"
         android:contentDescription="@string/content_description_category_icon"
-        android:padding="@dimen/space_10"
+        android:padding="@dimen/list_icon_padding"
         android:src="@drawable/ic_other"
         app:tint="@color/text_secondary" />
 
@@ -26,22 +26,26 @@
 
         <TextView
             android:id="@+id/categoryName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
 
         <TextView
             android:id="@+id/categoryMeta"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_2"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/categoryEdit"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="@dimen/list_action_size"
+        android:layout_height="@dimen/list_action_size"
         android:background="@drawable/bg_toolbar_icon"
         android:contentDescription="@string/content_description_edit"
         android:padding="@dimen/space_8"
@@ -50,8 +54,8 @@
 
     <ImageButton
         android:id="@+id/categoryDelete"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="@dimen/list_action_size"
+        android:layout_height="@dimen/list_action_size"
         android:layout_marginStart="@dimen/space_6"
         android:background="@drawable/bg_toolbar_icon"
         android:contentDescription="@string/content_description_delete"

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/fab_bottom_offset">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/space_16">
+                android:padding="@dimen/dashboard_metric_padding">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -80,14 +81,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="@string/total_income"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
 
                     <TextView
                         android:id="@+id/reportIncome"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.PocketLedger.AmountText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_2"
                         android:text="৳0.00"
@@ -102,14 +106,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="@string/total_spent"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
 
                     <TextView
                         android:id="@+id/reportExpense"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.PocketLedger.AmountText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_2"
                         android:text="৳0.00"
@@ -124,14 +131,17 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:text="@string/net"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
 
                     <TextView
                         android:id="@+id/reportNet"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.PocketLedger.AmountText"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_2"
                         android:text="৳0.00"
@@ -161,7 +171,7 @@
                 <com.pocketledger.customviews.BarChartView
                     android:id="@+id/reportChart"
                     android:layout_width="match_parent"
-                    android:layout_height="180dp"
+                    android:layout_height="@dimen/dashboard_chart_height"
                     android:layout_marginTop="@dimen/space_10" />
 
                 <TextView

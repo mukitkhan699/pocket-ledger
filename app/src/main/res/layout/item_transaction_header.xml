@@ -12,12 +12,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:textAppearance="@style/TextAppearance.PocketLedger.CaptionBold"
         android:textColor="@color/text_secondary" />
 
     <TextView
         android:id="@+id/headerTotal"
+        style="@style/Widget.PocketLedger.AmountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_8"
+        android:maxWidth="@dimen/list_amount_max_width"
         android:textAppearance="@style/TextAppearance.PocketLedger.CaptionBold" />
 </LinearLayout>

@@ -15,11 +15,11 @@
 
         <ImageButton
             android:id="@+id/backButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/list_icon_size"
+            android:layout_height="@dimen/list_icon_size"
             android:background="@drawable/bg_toolbar_icon"
             android:contentDescription="@string/content_description_back"
-            android:padding="@dimen/space_10"
+            android:padding="@dimen/list_icon_padding"
             android:src="@drawable/ic_arrow_back"
             app:tint="@color/text_primary" />
 
@@ -33,11 +33,11 @@
 
         <ImageButton
             android:id="@+id/addCategoryButton"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="@dimen/list_icon_size"
+            android:layout_height="@dimen/list_icon_size"
             android:background="@drawable/bg_toolbar_icon"
             android:contentDescription="@string/new_category"
-            android:padding="@dimen/space_10"
+            android:padding="@dimen/list_icon_padding"
             android:src="@drawable/ic_add"
             app:tint="@color/accent" />
     </LinearLayout>

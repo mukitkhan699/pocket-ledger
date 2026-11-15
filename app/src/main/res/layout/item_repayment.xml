@@ -5,11 +5,11 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingVertical="@dimen/space_10">
+    android:paddingVertical="@dimen/list_item_padding">
 
     <ImageView
-        android:layout_width="34dp"
-        android:layout_height="34dp"
+        android:layout_width="@dimen/list_action_size"
+        android:layout_height="@dimen/list_action_size"
         android:background="@drawable/bg_icon_circle_income"
         android:contentDescription="@string/repayments"
         android:padding="@dimen/space_8"
@@ -25,28 +25,35 @@
 
         <TextView
             android:id="@+id/repaymentDate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textAppearance="@style/TextAppearance.PocketLedger.BodyMedium" />
 
         <TextView
             android:id="@+id/repaymentNotes"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/repaymentAmount"
+        style="@style/Widget.PocketLedger.AmountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_8"
+        android:maxWidth="@dimen/list_amount_max_width"
         android:textAppearance="@style/TextAppearance.PocketLedger.Amount"
         android:textColor="@color/income" />
 
     <ImageButton
         android:id="@+id/repaymentDelete"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
+        android:layout_width="@dimen/list_action_size"
+        android:layout_height="@dimen/list_action_size"
         android:layout_marginStart="@dimen/space_6"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/content_description_delete"

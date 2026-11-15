@@ -187,4 +187,26 @@
         <item name="android:background">@color/divider</item>
     </style>
 
+    <style name="Widget.PocketLedger.SettingsRow" parent="">
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingStart">@dimen/settings_row_padding</item>
+        <item name="android:paddingEnd">@dimen/settings_row_padding</item>
+        <item name="android:paddingTop">@dimen/space_12</item>
+        <item name="android:paddingBottom">@dimen/space_12</item>
+    </style>
+
+    <style name="Widget.PocketLedger.AmountText" parent="">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:autoSizeMinTextSize">11sp</item>
+        <item name="android:autoSizeMaxTextSize">16sp</item>
+        <item name="android:autoSizeStepGranularity">1sp</item>
+    </style>
+
+    <style name="Widget.PocketLedger.AmountText.Large" parent="Widget.PocketLedger.AmountText">
+        <item name="android:autoSizeMinTextSize">14sp</item>
+        <item name="android:autoSizeMaxTextSize">34sp</item>
+    </style>
+
 </resources>

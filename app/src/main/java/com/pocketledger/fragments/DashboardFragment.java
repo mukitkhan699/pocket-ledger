@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -210,6 +211,8 @@ public class DashboardFragment extends Fragment {
         // Quick add button
         quickAddButton = view.findViewById(R.id.quickAddButton);
 
+        applyResponsiveLayout(view);
+
         // Set up listeners
         notificationIcon.setOnClickListener(v -> {
             // Navigate to notifications/settings
@@ -234,6 +237,65 @@ public class DashboardFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void applyResponsiveLayout(View view) {
+        int widthDp = getResources().getConfiguration().screenWidthDp;
+        if (widthDp <= 0) {
+            float density = getResources().getDisplayMetrics().density;
+            widthDp = (int) (getResources().getDisplayMetrics().widthPixels / density);
+        }
+
+        GridLayout metricGrid = view.findViewById(R.id.metricGrid);
+        GridLayout incomeExpenseGrid = view.findViewById(R.id.incomeExpenseGrid);
+        View metricBalance = view.findViewById(R.id.metricBalanceCard);
+        View metricMonthly = view.findViewById(R.id.metricMonthlyCard);
+        View metricLoan = view.findViewById(R.id.metricLoanCard);
+        View incomeCard = view.findViewById(R.id.incomeCard);
+        View expenseCard = view.findViewById(R.id.expenseCard);
+
+        int gap = dp(6);
+        if (metricGrid != null && metricBalance != null && metricMonthly != null && metricLoan != null) {
+            int columns = widthDp >= 400 ? 3 : 2;
+            metricGrid.setColumnCount(columns);
+            if (columns == 3) {
+                setGridParams(metricBalance, 1, 0, gap);
+                setGridParams(metricMonthly, 1, gap, gap);
+                setGridParams(metricLoan, 1, gap, 0);
+                setTopMargin(metricLoan, 0);
+            } else {
+                setGridParams(metricBalance, 1, 0, gap);
+                setGridParams(metricMonthly, 1, gap, 0);
+                setGridParams(metricLoan, 2, 0, 0);
+                setTopMargin(metricLoan, dp(12));
+            }
+        }
+
+        boolean stackIncomeExpense = widthDp < 360;
+        if (incomeExpenseGrid != null && incomeCard != null && expenseCard != null) {
+            incomeExpenseGrid.setColumnCount(stackIncomeExpense ? 1 : 2);
+            setGridParams(incomeCard, 1, 0, stackIncomeExpense ? 0 : gap);
+            setGridParams(expenseCard, 1, stackIncomeExpense ? 0 : gap, 0);
+            setTopMargin(expenseCard, stackIncomeExpense ? dp(12) : 0);
+        }
+    }
+
+    private void setGridParams(View view, int span, int leftMargin, int rightMargin) {
+        GridLayout.LayoutParams params = (GridLayout.LayoutParams) view.getLayoutParams();
+        params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, span, 1f);
+        params.leftMargin = leftMargin;
+        params.rightMargin = rightMargin;
+        view.setLayoutParams(params);
+    }
+
+    private void setTopMargin(View view, int topMargin) {
+        GridLayout.LayoutParams params = (GridLayout.LayoutParams) view.getLayoutParams();
+        params.topMargin = topMargin;
+        view.setLayoutParams(params);
+    }
+
+    private int dp(int value) {
+        return Math.round(value * getResources().getDisplayMetrics().density);
     }
 
     @Override

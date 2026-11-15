@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:paddingBottom="@dimen/fab_bottom_offset">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,15 +52,19 @@
 
                     <TextView
                         android:id="@+id/profileName"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Section" />
 
                     <TextView
                         android:id="@+id/profileEmail"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/space_2"
+                        android:ellipsize="end"
+                        android:maxLines="1"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
 
                     <TextView
@@ -105,7 +110,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -139,7 +144,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -173,7 +178,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -227,7 +232,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -246,7 +251,9 @@
 
                     <TextView
                         android:id="@+id/themeValue"
+                        style="@style/Widget.PocketLedger.AmountText"
                         android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
                         android:layout_height="wrap_content"
                         android:text="@string/theme_dark"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
@@ -259,7 +266,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -302,7 +309,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -367,7 +374,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -386,7 +393,9 @@
 
                     <TextView
                         android:id="@+id/syncStatusValue"
+                        style="@style/Widget.PocketLedger.AmountText"
                         android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
                         android:layout_height="wrap_content"
                         android:text="@string/cloud_connected"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
@@ -399,7 +408,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -418,7 +427,9 @@
 
                     <TextView
                         android:id="@+id/lastSyncValue"
+                        style="@style/Widget.PocketLedger.AmountText"
                         android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
                         android:layout_height="wrap_content"
                         android:text="@string/never"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
@@ -431,7 +442,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -450,7 +461,9 @@
 
                     <TextView
                         android:id="@+id/pendingValue"
+                        style="@style/Widget.PocketLedger.AmountText"
                         android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
@@ -465,7 +478,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -484,7 +497,9 @@
 
                     <TextView
                         android:id="@+id/conflictsValue"
+                        style="@style/Widget.PocketLedger.AmountText"
                         android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
                         android:layout_height="wrap_content"
                         android:text="0"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
@@ -499,7 +514,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -523,7 +538,9 @@
 
                         <TextView
                             android:id="@+id/lastBackupValue"
+                            style="@style/Widget.PocketLedger.AmountText"
                             android:layout_width="wrap_content"
+                            android:layout_marginStart="@dimen/space_8"
                             android:layout_height="wrap_content"
                             android:text="@string/never_backed_up"
                             android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />
@@ -564,7 +581,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <TextView
                         android:layout_width="0dp"
@@ -587,7 +604,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="@dimen/space_14">
+                    style="@style/Widget.PocketLedger.SettingsRow">
 
                     <TextView
                         android:layout_width="0dp"
@@ -598,7 +615,9 @@
 
                     <TextView
                         android:id="@+id/versionValue"
+                        style="@style/Widget.PocketLedger.AmountText"
                         android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/space_8"
                         android:layout_height="wrap_content"
                         android:text="1.0.0"
                         android:textAppearance="@style/TextAppearance.PocketLedger.Caption" />

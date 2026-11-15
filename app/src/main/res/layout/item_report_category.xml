@@ -32,8 +32,11 @@
 
         <TextView
             android:id="@+id/reportCategoryAmount"
+            style="@style/Widget.PocketLedger.AmountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_8"
+            android:maxWidth="@dimen/list_amount_max_width"
             android:textAppearance="@style/TextAppearance.PocketLedger.Amount" />
     </LinearLayout>
 
